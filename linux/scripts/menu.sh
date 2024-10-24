@@ -1,5 +1,5 @@
 
-options="Reboot\nLock\nPower Off"
+options="Reboot\nLock\nSuspend\nPower Off"
 
 chosen=$(echo "$options" | rofi -dmenu -p "Choose an action:")
 
@@ -9,6 +9,9 @@ case "$chosen" in
 		;;
 	"Lock")
 		i3lock
+		;;
+	"Suspend")
+		systemctl suspend
 		;;
 	"Power Off")
 		systemctl poweroff

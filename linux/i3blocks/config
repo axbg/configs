@@ -34,6 +34,13 @@ interval=1
 min_width=30
 align=center
 
+[brightness_zero]
+full_text=🌛
+command=brightnessctl set 1% > /dev/null
+interval=0
+min_width=30
+align=center
+
 [volume]
 label= 
 command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)"%"}'
@@ -68,6 +75,11 @@ align=center
 [language]
 full_text=us
 command=current_layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ "$current_layout" = "us" ]; then setxkbmap ro std; else setxkbmap us; fi; new_layout=$(setxkbmap -query | awk '/layout/{print $2}'); echo $new_layout;
+interval=none
+
+[bluetooth]
+full_text=bt
+command=bluedevil-wizard
 interval=none
 
 [screenshot]
