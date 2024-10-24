@@ -66,11 +66,11 @@ command=amixer set Master toggle > /dev/null; amixer get Master | awk -F'[][]' '
 interval=once
 align=center
 
-#[mic_mute]
-#full_text=🎤
-#command=wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3 == "[MUTED]") print "🎤 MUTED"; else print "🎤 OPEN"}'
-#interval=once
-#align=center
+[mic_mute]
+full_text=🎤
+command=amixer set Capture toggle > /dev/null; amixer get Capture | awk -F'[][]' '/%/ {if ($6 == "off") print "🎤MUTED"; else print "🎤OPEN"}'
+interval=once
+align=center
 
 [language]
 full_text=us
