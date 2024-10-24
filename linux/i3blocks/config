@@ -43,34 +43,34 @@ align=center
 
 [volume]
 label= 
-command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)"%"}'
+command=amixer get Master | awk -F'[][]' '/%/ {print int($2) "%"}'
 interval=1
 min_width=30
 align=center
 
 [volume_up]
 full_text=🔊 +
-command=wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
+command=amixer set Master 10%+ > /dev/null
 interval=0
 align=center
 
 [volume_down]
 full_text=🔉-
-command=wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
+command=amixer set Master 10%- > /dev/null
 interval=0
 align=center
 
 [volume_mute]
 full_text=
-command=wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == "[MUTED]") print "🔈MUTED"; else print "🔈LOUD"}'
+command=amixer set Master toggle > /dev/null; amixer get Master | awk -F'[][]' '/%/ {if ($6 == "off") print "🔈MUTED"; else print "🔈LOUD"}'
 interval=once
 align=center
 
-[mic_mute]
-full_text=🎤
-command=wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3 == "[MUTED]") print "🎤 MUTED"; else print "🎤 OPEN"}'
-interval=once
-align=center
+#[mic_mute]
+#full_text=🎤
+#command=wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3 == "[MUTED]") print "🎤 MUTED"; else print "🎤 OPEN"}'
+#interval=once
+#align=center
 
 [language]
 full_text=us
