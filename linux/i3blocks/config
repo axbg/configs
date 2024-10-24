@@ -23,7 +23,7 @@ interval=3600
 label=
 
 [battery]
-command=acpi -b | awk '{print $4 " " $5}' | sed 's/,//'
+command=acpi -b | awk '{print $4 " (" $3 ") " $5}' | sed 's/,//g'
 interval=30
 label=🔋 
 
