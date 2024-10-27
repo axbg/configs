@@ -62,13 +62,13 @@ align=center
 
 [volume_mute]
 full_text=
-command=amixer set Master toggle > /dev/null; amixer get Master | awk -F'[][]' '/%/ {if ($6 == "off") print "🔈MUTED"; else print "🔈LOUD"}'
+command=amixer set Master toggle > /dev/null; amixer get Master | awk 'END { split($NF, a, "]"); if (a[1] == "[off") print "🔈MUTED"; else print "🔈LOUD" }'
 interval=once
 align=center
 
 [mic_mute]
 full_text=🎤
-command=amixer set Capture toggle > /dev/null; amixer get Capture | awk -F'[][]' '/%/ {if ($6 == "off") print "🎤MUTED"; else print "🎤OPEN"}'
+command=amixer set Capture toggle > /dev/null; amixer get Capture | awk 'END { split($NF, a, "]"); if (a[1] == "[off") print "🎤MUTED"; else print "🎤OPEN" }'
 interval=once
 align=center
 
