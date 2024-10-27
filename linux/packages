@@ -1,4 +1,3 @@
-xinit
 vim
 htop
 curl
@@ -26,3 +25,4 @@ network-manager
 network-manager-gnome
 bluedevil
 arandr
+gdm3

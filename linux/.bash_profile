@@ -1,7 +1,7 @@
 # Custom settings
-amixer set Master off
-amixer set Capture cap
+amixer set Master on
+amixer set Capture off
 
-# Start i3
-exec startx
+# Added by Toolbox App
+export PATH="$PATH:/home/axbg/.local/share/JetBrains/Toolbox/scripts"
 

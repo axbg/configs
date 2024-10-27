@@ -61,15 +61,15 @@ interval=0
 align=center
 
 [volume_mute]
-full_text=
+full_text=🔈LOUD
 command=amixer set Master toggle > /dev/null; amixer get Master | awk 'END { split($NF, a, "]"); if (a[1] == "[off") print "🔈MUTED"; else print "🔈LOUD" }'
-interval=once
+interval=0
 align=center
 
 [mic_mute]
-full_text=🎤
+full_text=🎤MUTED
 command=amixer set Capture toggle > /dev/null; amixer get Capture | awk 'END { split($NF, a, "]"); if (a[1] == "[off") print "🎤MUTED"; else print "🎤OPEN" }'
-interval=once
+interval=0
 align=center
 
 [language]
