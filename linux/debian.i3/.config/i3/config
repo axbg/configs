@@ -43,8 +43,8 @@ exec --no-startup-id sh /home/axbg/Documents/scripts/connect-monitor.sh
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Wallpaper
-# exec -no-startup-id feh --bg-scale /home/axbg/Documents/wp.jpg
+# Transparency
+exec --no-startup-id compton
 
 # Use wpctl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -205,7 +205,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	tray_output primary
-	position top
+	position bottom
         status_command i3blocks
 	font pango:monospace 12
 }
